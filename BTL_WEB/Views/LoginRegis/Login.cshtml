@@ -5,19 +5,34 @@
 }
 @*route login: /loginregis/login*@
 
+@model User
+
 <div class="col-lg-4">
     <div class="we-login-register">
         <div class="form-title">
             <i class="fa fa-key"></i>login
             <span>sign in now and meet the awesome Friends around the world.</span>
         </div>
-        <form class="we-form" method="post">
-            <input type="text" placeholder="Email">
-            <input type="password" placeholder="Password">
+
+        @*<form class="we-form" method="post">*@
+        @using (Html.BeginForm("Login", "LoginRegis", FormMethod.Post, new {@class="we-form"})){
+
+           @* <input type="text" placeholder="Email">*@
+            @Html.TextBoxFor(x=>x.Email, new{type="text",placeholder="Email",required="required", autofocus="autofocus"})
+
+            @*<input type="password" placeholder="Password">*@
+            @Html.TextBoxFor(x=>x.Password, new{type="password",placeholder="Password",required="required", autofocus="autofocus"})
+           
             <input type="checkbox"><label>remember me</label>
+
+
             <button type="submit" data-ripple="">sign in</button>
+
+
             <a class="forgot underline" href="#" title="">forgot password?</a>
-        </form>
+        @*</form>*@
+        }
+
         <a class="with-smedia facebook" href="#" title="" data-ripple=""><i class="fa fa-facebook"></i></a>
         <a class="with-smedia twitter" href="#" title="" data-ripple=""><i class="fa fa-twitter"></i></a>
         <a class="with-smedia instagram" href="#" title="" data-ripple=""><i class="fa fa-instagram"></i></a>
