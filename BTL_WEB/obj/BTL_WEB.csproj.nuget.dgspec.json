@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nam 3 CNTT\\LT Web\\BTL_WEB\\BTL_WEB\\BTL_WEB.csproj": {}
+    "D:\\Nam 3 CNTT\\LT Web\\SocialNetwork_BTLWeb\\BTL_WEB\\BTL_WEB.csproj": {}
   },
   "projects": {
-    "D:\\Nam 3 CNTT\\LT Web\\BTL_WEB\\BTL_WEB\\BTL_WEB.csproj": {
+    "D:\\Nam 3 CNTT\\LT Web\\SocialNetwork_BTLWeb\\BTL_WEB\\BTL_WEB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nam 3 CNTT\\LT Web\\BTL_WEB\\BTL_WEB\\BTL_WEB.csproj",
+        "projectUniqueName": "D:\\Nam 3 CNTT\\LT Web\\SocialNetwork_BTLWeb\\BTL_WEB\\BTL_WEB.csproj",
         "projectName": "BTL_WEB",
-        "projectPath": "D:\\Nam 3 CNTT\\LT Web\\BTL_WEB\\BTL_WEB\\BTL_WEB.csproj",
+        "projectPath": "D:\\Nam 3 CNTT\\LT Web\\SocialNetwork_BTLWeb\\BTL_WEB\\BTL_WEB.csproj",
         "packagesPath": "C:\\Users\\linhn\\.nuget\\packages\\",
-        "outputPath": "D:\\Nam 3 CNTT\\LT Web\\BTL_WEB\\BTL_WEB\\obj\\",
+        "outputPath": "D:\\Nam 3 CNTT\\LT Web\\SocialNetwork_BTLWeb\\BTL_WEB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\linhn\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -56,7 +56,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.12, )"
+              "version": "[6.0.13, )"
             },
             "X.PagedList": {
               "target": "Package",

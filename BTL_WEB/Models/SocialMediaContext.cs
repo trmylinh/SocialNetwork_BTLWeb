@@ -213,8 +213,6 @@ public partial class SocialMediaContext : DbContext
 
             entity.HasIndex(e => e.Email, "UQ_users_email").IsUnique();
 
-            entity.HasIndex(e => e.Username, "UQ_users_username").IsUnique();
-
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.AvatarImg).HasColumnName("avatar_img");
             entity.Property(e => e.BackgroundImg).HasColumnName("background_img");
@@ -234,7 +232,9 @@ public partial class SocialMediaContext : DbContext
                 .HasMaxLength(200)
                 .IsFixedLength()
                 .HasColumnName("password");
-            entity.Property(e => e.RoleId).HasColumnName("role_id");
+            entity.Property(e => e.RoleId)
+                .HasDefaultValueSql("((2))")
+                .HasColumnName("role_id");
             entity.Property(e => e.Username)
                 .HasMaxLength(50)
                 .IsFixedLength()
