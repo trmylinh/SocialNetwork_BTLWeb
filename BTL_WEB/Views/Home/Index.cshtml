@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@model List<Post>
 <section>
 		<div class="gap2 gray-bg">
 			<div class="container">
@@ -167,7 +167,7 @@
 											</li>
 											<li>
 												<i class="ti-power-off"></i>
-												<a href="landing.html" title="">Logout</a>
+											<a href="/loginregis/logout" title="">Logout</a>
 											</li>
 										</ul>
 									</div><!-- Shortcuts -->
@@ -245,10 +245,10 @@
 										<figure>
 											<img src="../images/resources/admin.jpg" alt="">
 										</figure>
+									<form method="post" asp-action="CreatePost" asp-controller="Post" enctype="multipart/form-data">
 										<div class="newpst-input">
-											<form method="post">
-												<textarea rows="2" placeholder="Share some what you are thinking?"></textarea>
-											</form>
+												<textarea rows="2" placeholder="Share some what you are thinking?" name="content"></textarea>
+											
 										</div>
 										<div class="attachments">
 											<ul>
@@ -266,7 +266,7 @@
 												<li>
 													<i class="fa fa-image"></i>
 													<label class="fileContainer">
-														<input type="file">
+														<input id="imagefile" type="file" name="images" multiple>
 													</label>
 												</li>
 												<li>
@@ -303,6 +303,7 @@
 											  <!-- map -->
 											  <div id="us3"></div>
 										</div>
+									</form>
 									</div>	
 								</div><!-- add post new box -->
 								<div class="central-meta">
@@ -431,15 +432,19 @@
 									</div>
 								</div><!-- top stories -->
 								<div class="loadMore">
+								@foreach (var item in Model)
+                                {
 									<div class="central-meta item">
 										<div class="user-post">
+										
 											<div class="friend-info">
 												<figure>
 													<img src="../images/resources/nearly1.jpg" alt="">
 												</figure>
 												<div class="friend-name">
 													<div class="more">
-														<div class="more-post-optns"><i class="ti-more-alt"></i>
+														<div class="more-post-optns">
+															<i class="ti-more-alt"></i>
 															<ul>
 																<li><i class="fa fa-pencil-square-o"></i>Edit Post</li>
 																<li><i class="fa fa-trash-o"></i>Delete Post</li>
@@ -452,41 +457,38 @@
 														</div>
 													</div>
 													<ins><a href="time-line.html" title="">Jack Carter</a> Post Album</ins>
-													<span><i class="fa fa-globe"></i> published: September,15 2020 19:PM </span>
+													<span><i class="fa fa-globe"></i> published: @item.CreatedDatetime </span>
 												</div>
 												<div class="post-meta">
 													<p>
-														Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero.
+														@item.TextContent
 													</p>
 													<figure>
 														<div class="img-bunch">
 															<div class="row">
 																<div class="col-lg-6 col-md-6 col-sm-6">
+																	
 																	<figure>
 																		<a href="#" title="" data-toggle="modal" data-target="#img-comt">
-																		<img src="../images/resources/album1.jpg" alt="">
+																			<img src="" alt="">
 																		</a>
 																	</figure>
-																	<figure>
-																		<a href="#" title="" data-toggle="modal" data-target="#img-comt">
-																		<img src="../images/resources/album2.jpg" alt="">
-																		</a>
-																	</figure>
+																	
 																</div>
 																<div class="col-lg-6 col-md-6 col-sm-6">
 																	<figure>
 																		<a href="#" title="" data-toggle="modal" data-target="#img-comt">
-																		<img src="../images/resources/album6.jpg" alt="">
+																			<img src="../images/resources/album6.jpg" alt="">
 																		</a>
 																	</figure>
 																	<figure>
 																		<a href="#" title="" data-toggle="modal" data-target="#img-comt">
-																		<img src="../images/resources/album5.jpg" alt="">
+																			<img src="../images/resources/album5.jpg" alt="">
 																		</a>
 																	</figure>
 																	<figure>
 																		<a href="#" title="" data-toggle="modal" data-target="#img-comt">
-																		<img src="../images/resources/album4.jpg" alt="">
+																			<img src="../images/resources/album4.jpg" alt="">
 																		</a>
 																		<div class="more-photos">
 																			<span>+15</span>
@@ -494,13 +496,13 @@
 																	</figure>
 																</div>
 															</div>
-														</div>	
+														</div>
 														<ul class="like-dislike">
 															<li><a class="bg-purple" href="#" title="Save to Pin Post"><i class="fa fa-thumb-tack"></i></a></li>
 															<li><a class="bg-blue" href="#" title="Like Post"><i class="ti-thumb-up"></i></a></li>
 															<li><a class="bg-red" href="#" title="dislike Post"><i class="ti-thumb-down"></i></a></li>
 														</ul>
-													</figure>	
+													</figure>
 													<div class="we-video-info">
 														<ul>
 															<li>
@@ -525,24 +527,24 @@
 																		<i class="fa fa-share-alt"></i>
 																	</a>
 																	<ins>20</ins>
-																</span>	
+																</span>
 															</li>
 														</ul>
 														<div class="users-thumb-list">
 															<a data-toggle="tooltip" title="Anderw" href="#">
-																<img alt="" src="../images/resources/userlist-1.jpg">  
+																<img alt="" src="../images/resources/userlist-1.jpg">
 															</a>
 															<a data-toggle="tooltip" title="frank" href="#">
-																<img alt="" src="../images/resources/userlist-2.jpg">  
+																<img alt="" src="../images/resources/userlist-2.jpg">
 															</a>
 															<a data-toggle="tooltip" title="Sara" href="#">
-																<img alt="" src="../images/resources/userlist-3.jpg">  
+																<img alt="" src="../images/resources/userlist-3.jpg">
 															</a>
 															<a data-toggle="tooltip" title="Amy" href="#">
-																<img alt="" src="../images/resources/userlist-4.jpg">  
+																<img alt="" src="../images/resources/userlist-4.jpg">
 															</a>
 															<a data-toggle="tooltip" title="Ema" href="#">
-																<img alt="" src="../images/resources/userlist-5.jpg">  
+																<img alt="" src="../images/resources/userlist-5.jpg">
 															</a>
 															<span><strong>You</strong>, <b>Sarah</b> and <a href="#" title="">24+ more</a> liked</span>
 														</div>
@@ -571,7 +573,8 @@
 															</div>
 															<div class="we-comment">
 																<h5><a href="time-line.html" title="">Sophia</a></h5>
-																<p>we are working for the dance and sing songs. this video is very awesome for the youngster.
+																<p>
+																	we are working for the dance and sing songs. this video is very awesome for the youngster.
 																	<i class="em em-smiley"></i>
 																</p>
 																<div class="inline-itms">
@@ -616,16 +619,19 @@
 																	</div>
 
 																	<button type="submit"></button>
-																</form>	
+																</form>
 															</div>
 														</li>
 													</ul>
 												</div>
 											</div>
+										
 
 										</div>
-									</div><!-- album post -->
-									<div class="central-meta item">
+									</div>
+									}
+									<!-- album post -->
+									@*<div class="central-meta item">
 										<div class="user-post">
 											<div class="friend-info">
 												<figure>
@@ -1616,7 +1622,7 @@
 												</div>
 											</div>
 										</div>
-									</div><!-- video post -->
+									</div><!-- video post -->*@
 								</div>
 							</div><!-- centerl meta -->
 							<div class="col-lg-3">
