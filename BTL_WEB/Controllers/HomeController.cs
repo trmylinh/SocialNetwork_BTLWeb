@@ -9,23 +9,53 @@ namespace BTL_WEB.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        
-        public HomeController(ILogger<HomeController> logger)
+		SocialMediaContext db = new SocialMediaContext();
+		public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
         // phan quyen tat ca cac duong dan vao page thi them [Authentication]
         [Authentication] 
-        // home/index
+        // home/index 
+		// Show all posts tren trang home/index
         public IActionResult Index()
         {
-            return View();
-        }
+			if(HttpContext.Session.GetInt32("id") != null)
+			{
+				//	int currentId = (int)HttpContext.Session.GetInt32("id");
+				//	List<Post> currentPost = db.Posts.Where(x => x.UserId == currentId).OrderByDescending(x => x.CreatedDatetime).ToList();
+				List<Post> allPosts = db.Posts.ToList();
+
+				return View(allPosts);
+			}
+			return View();
+		}
 
 
+       
+		[Authentication]
+		public IActionResult YourPost()
+		{
+			if (HttpContext.Session.GetInt32("id") != null)
+			{
+				int currentId = (int)HttpContext.Session.GetInt32("id");
+				List<Post> currentPost = db.Posts.Where(x => x.UserId == currentId).OrderByDescending(x => x.CreatedDatetime).ToList();
+				List<string> media = new List<string>();
+                foreach (var item in currentPost)
+                {
+					var postId_media  = db.Media.Where(x => x.PostId == item.Id).ToList();
+					
+				
+                }
+              
+				return View(currentPost);
+			}
+			
+			return View();
+		}
 
-        public IActionResult Privacy()
+		public IActionResult Privacy()
         {
             return View();
         }

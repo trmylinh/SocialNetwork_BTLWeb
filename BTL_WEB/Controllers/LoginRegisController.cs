@@ -106,9 +106,12 @@ namespace BTL_WEB.Controllers
 				{
 					HttpContext.Session.SetString("email", u.Email.ToString());
 					HttpContext.Session.SetString("fullname", u.DisplayName.ToString());
-					
+					HttpContext.Session.SetInt32("id", u.Id);
+					HttpContext.Session.SetString("username", u.Username.ToString());
+
 					var username = u.Username;
-                    return RedirectToAction("Index", "Home");
+					
+					return RedirectToAction("Index", "Home");
                 }
 			}
 
