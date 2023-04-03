@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "93k+usbsh/ow9kUcKDsX9pcNqFnpw/LJhbKKCINKQ30=",
+  "Hash": "O/netgOrHVDAEVKwkrw5WexWx2QSZbxlun/EF9GyC88=",
   "Source": "BTL_WEB",
   "BasePath": "_content/BTL_WEB",
   "Mode": "Default",
@@ -28082,6 +28082,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ImageTitle\\020c7eddc166d05db89fcdc3d1ed8209.jpg"
+    },
+    {
+      "Identity": "D:\\Nam 3 CNTT\\LT Web\\SocialNetwork_BTLWeb\\BTL_WEB\\wwwroot\\ImageTitle\\174bce6319a58afee60498fcd2c7c777.jpg",
+      "SourceId": "BTL_WEB",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Nam 3 CNTT\\LT Web\\SocialNetwork_BTLWeb\\BTL_WEB\\wwwroot\\",
+      "BasePath": "_content/BTL_WEB",
+      "RelativePath": "ImageTitle/174bce6319a58afee60498fcd2c7c777.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ImageTitle\\174bce6319a58afee60498fcd2c7c777.jpg"
     },
     {
       "Identity": "D:\\Nam 3 CNTT\\LT Web\\SocialNetwork_BTLWeb\\BTL_WEB\\wwwroot\\ImageTitle\\8ae1c369eba34e0663927ec93057d954.jpg",

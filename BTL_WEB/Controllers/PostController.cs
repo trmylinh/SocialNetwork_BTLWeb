@@ -19,17 +19,17 @@ namespace BTL_WEB.Controllers
 
         }
 
-        [Authentication]
-        public IActionResult YourPost()
-        {
-            if(HttpContext.Session.GetInt32("id") != null)
-            {
-                int currentId = (int)HttpContext.Session.GetInt32("id");
-                List<Post> currentPost = db.Posts.Where(x=>x.UserId == currentId).OrderByDescending(x=>x.CreatedDatetime).ToList();
-                return View(currentPost);
-            }
-            return View();                                                                                                                      
-        }
+        //[Authentication]
+        //public IActionResult YourPost()
+        //{
+        //    if(HttpContext.Session.GetInt32("id") != null)
+        //    {
+        //        int currentId = (int)HttpContext.Session.GetInt32("id");
+        //        List<Post> currentPost = db.Posts.Where(x=>x.UserId == currentId).OrderBy(x=>x.CreatedDatetime).ToList();
+        //        return View(currentPost);
+        //    }
+        //    return View();                                                                                                                      
+        //}
 
         [HttpPost]
         public IActionResult CreatePost(string content, List<IFormFile> images)
