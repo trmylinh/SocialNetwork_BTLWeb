@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BTL_WEB.Models;
+﻿namespace BTL_WEB.Models;
 
 public partial class ChatMember
 {

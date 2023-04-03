@@ -7,7 +7,7 @@ namespace BTL_WEB.Models.Authentication
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            if(context.HttpContext.Session.GetString("email") == null)
+            if (context.HttpContext.Session.GetString("email") == null)
             {
                 context.Result = new RedirectToRouteResult(new RouteValueDictionary
                 {
@@ -15,7 +15,7 @@ namespace BTL_WEB.Models.Authentication
                     {"Action", "Login" }
                 });
             }
-            
+
         }
 
     }
