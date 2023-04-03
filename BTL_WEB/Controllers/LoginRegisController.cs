@@ -94,19 +94,22 @@ namespace BTL_WEB.Controllers
 
         }
 
-        [HttpPost]
-        public IActionResult Login(User user)
-        {
-            if (HttpContext.Session.GetString("email") == null)
-            {
-                var u = db.Users.Where(x => x.Email.Equals(user.Email) && x.Password.Equals(user.Password)).FirstOrDefault();
-                if (u != null)
-                {
-                    HttpContext.Session.SetString("email", u.Email.ToString());
-                    HttpContext.Session.SetString("fullname", u.DisplayName.ToString());
+		[HttpPost]
+		public IActionResult Login(User user)
+		{
+			if(HttpContext.Session.GetString("email")== null)
+			{
+				var u = db.Users.Where(x=>x.Email.Equals(user.Email) && x.Password.Equals(user.Password)).FirstOrDefault();
+				if(u != null)
+				{
+					HttpContext.Session.SetString("email", u.Email.ToString());
+					HttpContext.Session.SetString("fullname", u.DisplayName.ToString());
+					HttpContext.Session.SetInt32("id", u.Id);
+					HttpContext.Session.SetString("username", u.Username.ToString());
 
-                    var username = u.Username;
-                    return RedirectToAction("Index", "Home");
+					var username = u.Username;
+					
+					return RedirectToAction("Index", "Home");
                 }
             }
 
