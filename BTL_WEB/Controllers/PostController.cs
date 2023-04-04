@@ -31,6 +31,8 @@ namespace BTL_WEB.Controllers
         //    return View();                                                                                                                      
         //}
 
+
+        [Authentication]
         [HttpPost]
         public IActionResult CreatePost(string content, List<IFormFile> images)
         {
@@ -67,5 +69,38 @@ namespace BTL_WEB.Controllers
             
             return RedirectToAction("Index", "Home");
         }
+
+        [Authentication]
+        public JsonResult LikePost(string idPost, string idUser)
+        {
+            if (idPost == null || idUser == null)
+            {
+                string error = "like error";
+                return new JsonResult(new { error });
+            }
+            Like isLiked = db.Likes.Where(x => x.UserId == int.Parse(idUser) && x.IsPostLike == true && x.TargetId == int.Parse(idPost)).FirstOrDefault();
+            int amountLike;
+            if(isLiked != null)
+            {
+                db.Likes.Remove(isLiked);
+                
+            }
+            else
+            {
+                Like like = new Like();
+               
+                like.UserId = int.Parse(idUser);
+                like.IsPostLike = true;
+                like.TargetId = int.Parse(idPost);
+                db.Likes.Add(like);
+                
+            }
+            db.SaveChanges();
+			amountLike = db.Likes.Where(x => x.TargetId == int.Parse(idPost)).Count();
+            db.SaveChanges();
+			return new JsonResult(new {isLiked, amountLike});
+
+        }
+        
     }
 }

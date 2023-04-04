@@ -1,6 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@{
+	var idUser = Context.Session.GetInt32("id");
+}
 @using BTL_WEB.ViewModels
 @model List<PostDetailViewModel>
 
@@ -436,7 +439,7 @@
 								<div class="loadMore">
 								@foreach (var item in Model)
                                 {
-									<div class="central-meta item">
+									<div class="central-meta item" >
 										<div class="user-post">
 										
 											<div class="friend-info">
@@ -496,7 +499,14 @@
 																</span>
 															</li>
 															<li>
-																<div class="likes heart" title="Like/Dislike">❤ <span>2K</span></div>
+																@{
+																	var classlike = "";
+																	if(item.liked != 1)
+																	{
+																		classlike = "happy broken";
+																	}
+																}
+																<div class="likes heart @classlike" idUser="@idUser" idPost="@item.post.Id" title="Like/Dislike">❤ <span>@item.mountlike</span></div>
 															</li>
 															<li>
 																<span class="comment" title="Comments">
@@ -613,7 +623,7 @@
 
 										</div>
 									</div>
-									}
+								}
 									<!-- album post -->
 									@*<div class="central-meta item">
 										<div class="user-post">

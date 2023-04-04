@@ -34,7 +34,9 @@ namespace BTL_WEB.Controllers
 					postDetailVM.Add(new PostDetailViewModel
 					{
 						post = item,
-						listmedia = listImg
+						listmedia = listImg,
+						liked = db.Likes.Where(x=>x.UserId == HttpContext.Session.GetInt32("id")).Count(),
+						mountlike = db.Likes.Where(x=>x.TargetId == item.Id).Count()
 					});
 				}
 				return View(postDetailVM);

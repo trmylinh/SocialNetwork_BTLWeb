@@ -202,21 +202,32 @@ $('.audio-call, .video-call').on('click', function () {
 	}
 
 //--- heart like and unlike 
-	var counter = 0;
-	var animated = false;
+
+	var animated;
+	function likePost(idPost, idUser) {
+		$.ajax({
+			type: 'GET',
+			url: `https://localhost:7070/Post/LikePost?idUser=${idUser}&idPost=${idPost}`,
+			dataType: 'json',
+			contentType: "application/json;charset=utf-8",
+		
+			success: function (data) {
+				if (data.error == undefined) {
+					let counter = data.amountLike;
+					$('.heart').children('span').text(counter);
+				}
+			},
+			error: function (err) {
+				console.log(err)
+			},
+
+		})
+	}
 		$('.heart').click(function(){
-		  if(!animated){
-			$(this).addClass('happy').removeClass('broken');
-			animated = true;
-			counter++;
-			$(this).children('span').text(counter);
-		  }
-		  else {
-			$(this).removeClass('happy').addClass('broken');
-			animated = false; 
-			 counter--;
-			$(this).children('span').text(counter);
-		  }
+
+			$(this).addClass('happy').toggleClass('broken');
+			 likePost($(this).attr("idPost"), $(this).attr("idUser"));
+	
 		});	
 	
 // search fadein out at navlist area	
