@@ -9,81 +9,57 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BTL_WEB
 build_property.RootNamespace = BTL_WEB
-build_property.ProjectDir = D:\Nam 3 CNTT\LT Web\SocialNetwork_BTLWeb\BTL_WEB\
+build_property.ProjectDir = D:\Workspace\Web\btlWebMVC_Core\BTL_WEB\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Nam 3 CNTT\LT Web\SocialNetwork_BTLWeb\BTL_WEB
+build_property.MSBuildProjectDirectory = D:\Workspace\Web\btlWebMVC_Core\BTL_WEB
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/EditProfile/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdFByb2ZpbGVcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Home/Index.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Home/Privacy.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/LoginRegis/Index.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/LoginRegis/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5SZWdpc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/LoginRegis/Login.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/LoginRegis/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5SZWdpc1xMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Messages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Post/YourPost.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/Post/YourPost.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxZb3VyUG9zdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Profile/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Shared/Error.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Shared/_LayoutEditProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRFZGl0UHJvZmlsZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Shared/_LayoutLoginRegis.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/Shared/_LayoutLoginRegis.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRMb2dpblJlZ2lzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Shared/_LayoutMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRNZXNzYWdlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Shared/_LayoutProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRQcm9maWxlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Shared/_LayoutTimeline.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/Shared/_LayoutTimeline.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRUaW1lbGluZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/_ViewImports.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/_ViewStart.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Nam 3 CNTT/LT Web/SocialNetwork_BTLWeb/BTL_WEB/Views/Shared/_Layout.cshtml]
+[D:/Workspace/Web/btlWebMVC_Core/BTL_WEB/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-0bw4k43ktu

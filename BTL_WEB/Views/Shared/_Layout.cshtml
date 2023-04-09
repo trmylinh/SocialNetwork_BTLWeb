@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="../css/page-tour.css">
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/color.css">
+	<link rel="stylesheet" href="../css/color-pink.css">
 	<link rel="stylesheet" href="../css/responsive.css">
 
 </head>
@@ -66,14 +67,14 @@
 					<ul>
 						<li><a href="index.html" title="">Pitnik Default</a></li>
 						<li><a href="pitrest.html" title="">Pitrest</a></li>
-						<li><a href="pitpoint.html" title="">PitPoint</a></li>
-						<li><a href="pitpoint.html" title="">Messenger</a></li>
+						<li><a title="" asp-controller="FindFriend" asp-action="Index">PitPoint</a></li>
+						<li><a href="chat-messenger.html" title="">Messenger</a></li>
 					</ul>
 				</li>
 				<li><span>PitPoint</span>
 					<ul>
-						<li><a href="pitpoint.html" title="">PitPoint</a></li>
-						<li><a href="pitpoint-list.html" title="">Pitpoint List style</a></li>
+						<li><a title="" asp-controller="FindFriend" asp-action="Index">PitPoint</a></li>
+						<li><a href="#" title="">Pitpoint List style</a></li>
 					</ul>
 				</li>
 				<li><span>Timeline</span>
@@ -741,15 +742,12 @@
 					<ul>
 						<li><a href="index.html" title="">Pitnik Default</a></li>
 						<li><a href="pitrest.html" title="">Pitrest</a></li>
-						<li><a href="pitpoint.html" title="">PitPoint</a></li>
+						<li><a class="" title="" asp-controller="FindFriend" asp-action="Index">PitPoint</a></li>
 						<li><a href="chat-messenger.html" title="">Messenger</a></li>
 					</ul>
 				</li>
-				<li><a class="" href="#" title=""><i class="fa fa-female"></i> PitPoint</a>
-					<ul>
-						<li><a href="pitpoint.html" title="">PitPoint</a></li>
-						<li><a href="pitpoint-list.html" title="">Pitpoint List style</a></li>
-					</ul>
+				<li><a class="" title="" asp-controller="FindFriend" asp-action="Index"><i class="fa fa-female"></i> PitPoint</a>
+			
 				</li>
 				<li><a class="" href="#" title=""><i class="fa fa-repeat"></i> Timeline</a>
 					<ul>
@@ -1000,13 +998,13 @@
 					<ul class="submenu">
 						<li><a href="index.html" title="">Pitnik Default</a></li>
 						<li><a href="pitrest.html" title="">Pitrest</a></li>
-						<li><a href="pitpoint.html" title="">PitPoint</a></li>
+						<li><a title="" asp-controller="FindFriend" asp-action="Index">PitPoint</a></li>
 						<li><a href="chat-messenger.html" title="">Messenger</a></li>
 					</ul>
 				</li>
 				<li class="menu-item-has-children"><a class="" href="#" title=""><i class="fa fa-female"></i>PitPoint</a>
 					<ul class="submenu">
-						<li><a href="pitpoint.html" title="">PitPoint</a></li>
+							<li><a title="" asp-controller="FindFriend" asp-action="Index">PitPoint</a></li>
 						<li><a href="pitpoint-list.html" title="">Pitpoint List style</a></li>
 					</ul>
 				</li>
@@ -1077,7 +1075,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+	</div>
 	<div class="side-panel">
 		<h4 class="panel-title">General Setting</h4>
 		<form method="post">
@@ -1521,36 +1519,36 @@
 			  }
 			});
 
-		if ($.isFunction($.fn.toast)) {
-			$.toast({
-				heading: 'Welcome To Pitnik',
-				text: '',
-				showHideTransition: 'slide',
-				icon: 'success',
-				loaderBg: '#fa6342',
-				position: 'bottom-right',
-				hideAfter: 3000,
-			});
+		//if ($.isFunction($.fn.toast)) {
+		//	$.toast({
+		//		heading: 'Welcome To Pitnik',
+		//		text: '',
+		//		showHideTransition: 'slide',
+		//		icon: 'success',
+		//		loaderBg: '#fa6342',
+		//		position: 'bottom-right',
+		//		hideAfter: 3000,
+		//	});
 
-			$.toast({
-				heading: 'Information',
-				text: 'Now you can full demo of pitnik and hope you like',
-				showHideTransition: 'slide',
-				icon: 'info',
-				hideAfter: 5000,
-				loaderBg: '#fa6342',
-				position: 'bottom-right',
-			});
-			$.toast({
-				heading: 'Support & Help',
-				text: 'Report any <a href="#">issues</a> by email',
-				showHideTransition: 'fade',
-				icon: 'error',
-				hideAfter: 7000,
-				loaderBg: '#fa6342',
-				position: 'bottom-right',
-			});
-		}	
+		//	$.toast({
+		//		heading: 'Information',
+		//		text: 'Now you can full demo of pitnik and hope you like',
+		//		showHideTransition: 'slide',
+		//		icon: 'info',
+		//		hideAfter: 5000,
+		//		loaderBg: '#fa6342',
+		//		position: 'bottom-right',
+		//	});
+		//	$.toast({
+		//		heading: 'Support & Help',
+		//		text: 'Report any <a href="#">issues</a> by email',
+		//		showHideTransition: 'fade',
+		//		icon: 'error',
+		//		hideAfter: 7000,
+		//		loaderBg: '#fa6342',
+		//		position: 'bottom-right',
+		//	});
+		//}	
 
 		});	
 </script>

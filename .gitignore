@@ -26,6 +26,7 @@ vs/
 bin/
 obj/
 TestResults/
+.vs/
 ###################
 # Web publish log #
 ###################

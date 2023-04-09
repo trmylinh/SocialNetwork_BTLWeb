@@ -5,9 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-var connectionString = builder.Configuration.GetConnectionString("SocialMediaContext");
-builder.Services.AddDbContext<SocialMediaContext>(x=>x.UseSqlServer(connectionString));
+builder.Services.AddDbContext<SocialMediaContext>(option => option.UseSqlServer(
+    builder.Configuration.GetConnectionString("SocialMediaContext")
+));
 builder.Services.AddSession();
 
 var app = builder.Build();
