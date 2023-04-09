@@ -99,19 +99,23 @@ namespace BTL_WEB.Controllers
 		[HttpPost]
 		public IActionResult Login(User user)
 		{
-			if(HttpContext.Session.GetString("email")== null)
+			//var id = user.Id;
+            //HttpContext.Session.SetInt32("id", user.Id);
+            if (HttpContext.Session.GetString("email")== null)
 			{
 				var u = db.Users.Where(x=>x.Email.Equals(user.Email) && x.Password.Equals(user.Password)).FirstOrDefault();
 				if(u != null)
-				{
-					HttpContext.Session.SetString("email", u.Email.ToString());
+				{	
+                //    HttpContext.Session.SetString("id", u.Id.ToString());
+                    HttpContext.Session.SetString("email", u.Email.ToString());
 					HttpContext.Session.SetString("fullname", u.DisplayName.ToString());
 					HttpContext.Session.SetInt32("id", u.Id);
 					HttpContext.Session.SetString("username", u.Username.ToString());
 					HttpContext.Session.SetString("avatar", u.AvatarImg.ToString());
+                    HttpContext.Session.SetInt32("gender", (byte)u.Gender);
+                    HttpContext.Session.SetString("birthday", u.Birthday?.ToString("dd-MM-yyyy"));
 					var username = u.Username;
-					
-					return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
 			}
 

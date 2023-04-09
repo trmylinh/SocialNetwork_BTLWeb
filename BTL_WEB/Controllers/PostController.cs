@@ -91,19 +91,7 @@ namespace BTL_WEB.Controllers
 
         }
 
-        public List<CommentViewModel> RenderListComment(string idPost)
-        {
-            string currentUser = HttpContext.Session.GetString("fullname");
-            List<CommentViewModel> lst = new List<CommentViewModel>();
-            List<Comment> lstComment = db.Comments.Where(x => x.PostId == int.Parse(idPost)).OrderByDescending(x => x.CreatedDatetime).ToList();
-            foreach(Comment comment in lstComment)
-            {
-                CommentViewModel infoComment = new CommentViewModel(comment, currentUser);
-                lst.Add(infoComment);
-            }
-            return lst;
-        }
-
+        
 
 		//	[Authentication]
 		[HttpPost]

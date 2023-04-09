@@ -1,5 +1,6 @@
 ﻿@{
 	var fullname = Context.Session.GetString("fullname");
+	var userId = Context.Session.GetString("id");
 	var avatar = Context.Session.GetString("avatar");
 }
 
@@ -66,7 +67,7 @@
 						<li><a href="index.html" title="">Pitnik Default</a></li>
 						<li><a href="pitrest.html" title="">Pitrest</a></li>
 						<li><a href="pitpoint.html" title="">PitPoint</a></li>
-						<li><a href="chat-messenger.html" title="">Messenger</a></li>
+						<li><a href="pitpoint.html" title="">Messenger</a></li>
 					</ul>
 				</li>
 				<li><span>PitPoint</span>
@@ -83,7 +84,7 @@
 						<li><a href="timeline-groups.html" title="">Timeline Groups</a></li>
 						<li><a href="timeline-friends.html" title="">Timeline Friends</a></li>
 						<li><a href="timeline-friends2.html" title="">Timeline Friends-2</a></li>
-						<li><a href="about.html" title="">Timeline About</a></li>
+						<li><a href="/Profile/Index">Timeline About</a></li>
 						<li><a href="blog-posts.html" title="">Timeline Blog</a></li>
 						<li><a href="newsfeed.html" title="">Newsfeed</a></li>
 						<li><a href="search-result.html" title="">Search Result</a></li>
@@ -227,6 +228,7 @@
 							<li>
 								<div>
 									<figure>
+										
 										<img src="../images/resources/thumb-2.jpg" alt="">
 									</figure>
 									<div class="mesg-meta">
@@ -712,7 +714,7 @@
 			</ul>
 			<div class="user-img">
 				<h5>@fullname</h5>
-				<img src="../images/resources/admin.jpg" alt="">
+				<a href="/Profile/Index"><img src="../images/resources/admin.jpg" alt="" style="border-radius: 50%;"></a>
 				<span class="status f-online"></span>
 				<div class="user-setting">
 					<span class="seting-title">Chat setting <a href="#" title="">see all</a></span>
@@ -757,7 +759,7 @@
 						<li><a href="timeline-groups.html" title="">Timeline Groups</a></li>
 						<li><a href="timeline-friends.html" title="">Timeline Friends</a></li>
 						<li><a href="timeline-friends2.html" title="">Timeline Friends-2</a></li>
-						<li><a href="about.html" title="">Timeline About</a></li>
+						<li><a href="/Profile/Index">Timeline About</a></li>
 						<li><a href="blog-posts.html" title="">Timeline Blog</a></li>
 						<li><a href="newsfeed.html" title="">Newsfeed</a></li>
 						<li><a href="search-result.html" title="">Search Result</a></li>
@@ -967,7 +969,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="chat-messenger.html" title="Messages" data-toggle="tooltip" data-placement="right">
+					<a asp-controller="Messages" asp-action="Index" title="Messages" data-toggle="tooltip" data-placement="right">
 						<i class="ti-comment-alt"></i>
 					</a>
 				</li>
@@ -1016,7 +1018,7 @@
 						<li><a href="timeline-groups.html" title="">Timeline Groups</a></li>
 						<li><a href="timeline-friends.html" title="">Timeline Friends</a></li>
 						<li><a href="timeline-friends2.html" title="">Timeline Friends-2</a></li>
-						<li><a href="about.html" title="">Timeline About</a></li>
+						<li><a href="/Profile/Index">Timeline About</a></li>
 						<li><a href="blog-posts.html" title="">Timeline Blog</a></li>
 						<li><a href="newsfeed.html" title="">Newsfeed</a></li>
 						<li><a href="search-result.html" title="">Search Result</a></li>

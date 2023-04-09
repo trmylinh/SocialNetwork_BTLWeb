@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace BTL_WEB.Models;
@@ -15,7 +16,9 @@ public partial class Message
 
     public int SenderId { get; set; }
 
-    public virtual ChatGroup Group { get; set; } = null!;
+    [JsonIgnore]
+    public virtual ChatGroup? Group { get; set; } = null!;
 
-    public virtual User Sender { get; set; } = null!;
+    [JsonIgnore]
+    public virtual User? Sender { get; set; } = null!;
 }
