@@ -1,4 +1,7 @@
-﻿namespace BTL_WEB.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace BTL_WEB.Models;
 
 public partial class Role
 {

@@ -1,7 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model List<Post>
+@using BTL_WEB.ViewModels
+@model List<PostDetailViewModel>
+
 <section>
 		<div class="gap2 gray-bg">
 			<div class="container">
@@ -457,44 +459,26 @@
 														</div>
 													</div>
 													<ins><a href="time-line.html" title="">Jack Carter</a> Post Album</ins>
-													<span><i class="fa fa-globe"></i> published: @item.CreatedDatetime </span>
+													<span><i class="fa fa-globe"></i> published: @item.post.CreatedDatetime </span>
 												</div>
 												<div class="post-meta">
 													<p>
-														@item.TextContent
+														@item.post.TextContent
 													</p>
 													<figure>
 														<div class="img-bunch">
 															<div class="row">
+															@foreach(var i in item.listmedia)	{
 																<div class="col-lg-6 col-md-6 col-sm-6">
-																	
+																
 																	<figure>
 																		<a href="#" title="" data-toggle="modal" data-target="#img-comt">
-																			<img src="" alt="">
+																			<img src="@i.MediaFile" alt="">
 																		</a>
 																	</figure>
-																	
+																
 																</div>
-																<div class="col-lg-6 col-md-6 col-sm-6">
-																	<figure>
-																		<a href="#" title="" data-toggle="modal" data-target="#img-comt">
-																			<img src="../images/resources/album6.jpg" alt="">
-																		</a>
-																	</figure>
-																	<figure>
-																		<a href="#" title="" data-toggle="modal" data-target="#img-comt">
-																			<img src="../images/resources/album5.jpg" alt="">
-																		</a>
-																	</figure>
-																	<figure>
-																		<a href="#" title="" data-toggle="modal" data-target="#img-comt">
-																			<img src="../images/resources/album4.jpg" alt="">
-																		</a>
-																		<div class="more-photos">
-																			<span>+15</span>
-																		</div>
-																	</figure>
-																</div>
+															}		
 															</div>
 														</div>
 														<ul class="like-dislike">

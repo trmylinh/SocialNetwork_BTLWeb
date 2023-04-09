@@ -1,4 +1,7 @@
-﻿namespace BTL_WEB.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace BTL_WEB.Models;
 
 public partial class User
 {
@@ -16,9 +19,9 @@ public partial class User
 
     public DateTime? Birthday { get; set; }
 
-    public byte[]? AvatarImg { get; set; }
+    public string? AvatarImg { get; set; }
 
-    public byte[]? BackgroundImg { get; set; }
+    public string? BackgroundImg { get; set; }
 
     public bool IsLocked { get; set; }
 

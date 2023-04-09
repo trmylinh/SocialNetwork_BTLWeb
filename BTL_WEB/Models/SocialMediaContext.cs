@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace BTL_WEB.Models;
 
@@ -211,8 +213,12 @@ public partial class SocialMediaContext : DbContext
             entity.HasIndex(e => e.Email, "UQ_users_email").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.AvatarImg).HasColumnName("avatar_img");
-            entity.Property(e => e.BackgroundImg).HasColumnName("background_img");
+            entity.Property(e => e.AvatarImg)
+                .HasMaxLength(500)
+                .HasColumnName("avatar_img");
+            entity.Property(e => e.BackgroundImg)
+                .HasMaxLength(500)
+                .HasColumnName("background_img");
             entity.Property(e => e.Birthday)
                 .HasColumnType("date")
                 .HasColumnName("birthday");
