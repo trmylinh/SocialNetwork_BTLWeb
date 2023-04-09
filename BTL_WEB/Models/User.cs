@@ -12,8 +12,8 @@ public partial class User
 
     public string DisplayName { get; set; } = null!;
 
-    [RegularExpression(@"^([\w-]+(\?\:\.[\w-]+)*)@((\?\:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(\?\:\.[a-z]{2})?)$", ErrorMessage = "Invalid email format")]
-    public string Email { get; set; } = null!;
+	[RegularExpression(@"^([\w-]+(\?\:\.[\w-]+)*)@((\?\:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(\?\:\.[a-z]{2})?)$", ErrorMessage = "Invalid email format")]
+	public string Email { get; set; } = null!;
 
     public string Password { get; set; } = null!;
 
@@ -21,9 +21,9 @@ public partial class User
 
     public DateTime? Birthday { get; set; }
 
-    public byte[]? AvatarImg { get; set; }
+    public string? AvatarImg { get; set; }
 
-    public byte[]? BackgroundImg { get; set; }
+    public string? BackgroundImg { get; set; }
 
     public bool IsLocked { get; set; }
 

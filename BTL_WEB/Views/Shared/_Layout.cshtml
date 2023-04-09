@@ -1,5 +1,6 @@
 ﻿@{
 	var fullname = Context.Session.GetString("fullname");
+	var avatar = Context.Session.GetString("avatar");
 }
 
 <!DOCTYPE html>
@@ -1293,6 +1294,7 @@
 					<form method="post" class="c-form">
 						<input type="text" placeholder="Sophia">
 						<textarea placeholder="Write Message"></textarea>
+
 						<button type="submit" class="main-btn">Send</button>
 					</form>
 					<div class="add-smiles">
