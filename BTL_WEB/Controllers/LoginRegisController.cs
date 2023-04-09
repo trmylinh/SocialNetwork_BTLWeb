@@ -106,10 +106,10 @@ namespace BTL_WEB.Controllers
 				var u = db.Users.Where(x=>x.Email.Equals(user.Email) && x.Password.Equals(user.Password)).FirstOrDefault();
 				if(u != null)
 				{	
-                    HttpContext.Session.SetString("id", u.Id.ToString());
+                //    HttpContext.Session.SetString("id", u.Id.ToString());
                     HttpContext.Session.SetString("email", u.Email.ToString());
 					HttpContext.Session.SetString("fullname", u.DisplayName.ToString());
-				//	HttpContext.Session.SetInt32("id", u.Id);
+					HttpContext.Session.SetInt32("id", u.Id);
 					HttpContext.Session.SetString("username", u.Username.ToString());
 					HttpContext.Session.SetString("avatar", u.AvatarImg.ToString());
                     HttpContext.Session.SetInt32("gender", (byte)u.Gender);
