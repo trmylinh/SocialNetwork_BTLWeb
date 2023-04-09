@@ -5,6 +5,8 @@ using BTL_WEB.Models;
 using System.Reflection.Metadata;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using System.Runtime.CompilerServices;
+using BTL_WEB.ViewModels;
+using System.Xml.Linq;
 
 namespace BTL_WEB.Controllers
 {
@@ -18,19 +20,6 @@ namespace BTL_WEB.Controllers
             _env = _environment;
 
         }
-
-        //[Authentication]
-        //public IActionResult YourPost()
-        //{
-        //    if(HttpContext.Session.GetInt32("id") != null)
-        //    {
-        //        int currentId = (int)HttpContext.Session.GetInt32("id");
-        //        List<Post> currentPost = db.Posts.Where(x=>x.UserId == currentId).OrderBy(x=>x.CreatedDatetime).ToList();
-        //        return View(currentPost);
-        //    }
-        //    return View();                                                                                                                      
-        //}
-
 
         [Authentication]
         [HttpPost]
@@ -101,6 +90,47 @@ namespace BTL_WEB.Controllers
 			return new JsonResult(new {isLiked, amountLike});
 
         }
-        
-    }
+
+        public List<CommentViewModel> RenderListComment(string idPost)
+        {
+            string currentUser = HttpContext.Session.GetString("fullname");
+            List<CommentViewModel> lst = new List<CommentViewModel>();
+            List<Comment> lstComment = db.Comments.Where(x => x.PostId == int.Parse(idPost)).OrderByDescending(x => x.CreatedDatetime).ToList();
+            foreach(Comment comment in lstComment)
+            {
+                CommentViewModel infoComment = new CommentViewModel(comment, currentUser);
+                lst.Add(infoComment);
+            }
+            return lst;
+        }
+
+
+		//	[Authentication]
+		[HttpPost]
+		public IActionResult PostComment(Comment comment)
+		{
+			if (ModelState.IsValid)
+			{
+				comment.UserId = (int)HttpContext.Session.GetInt32("id");
+				comment.CreatedDatetime = DateTime.Now;
+				db.Comments.Add(comment);
+				db.SaveChanges();
+
+				var user = db.Users.SingleOrDefault(x => x.Id == comment.UserId);
+
+				var data = new
+				{
+					content = comment.TextContent,
+					userImg = user.AvatarImg,
+					userName = user.DisplayName,
+                    creatAt = comment.CreatedDatetime.ToString()
+				};
+
+				return new JsonResult(data);
+			}
+			return new JsonResult(null);
+		}
+	}
+
+
 }

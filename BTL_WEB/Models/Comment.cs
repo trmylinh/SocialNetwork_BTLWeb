@@ -17,7 +17,7 @@ public partial class Comment
 
     public int? ParentId { get; set; }
 
-    public virtual Post Post { get; set; } = null!;
+    public virtual Post? Post { get; set; } = null!;
 
-    public virtual User User { get; set; } = null!;
+    public virtual User? User { get; set; } = null!;
 }

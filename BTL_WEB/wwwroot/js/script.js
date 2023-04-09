@@ -1116,18 +1116,76 @@ if ($.isFunction($.fn.mmenu)) {
 			time: 1000
 		});
 		}	
-/** Post a Comment **/
-jQuery(".post-comt-box textarea").on("keydown", function(event) {
+	/** Post a Comment **/
+	function handleComment(event, idPost) {
+		event.preventDefault()
+		console.log("log1")
+		var commentArea = document.querySelector('.coment-area-' + idPost)
+		console.log(event.target)
+		var content = event.target.value
+		
+		console.log("log",content)
+		var comment = {
+			"PostId": idPost,
+			"Content": content
+		}
+		event.target.value = ""
+		$.ajax({
+			url: 'https://localhost:7070/Post/PostComment?PostId=' + idPost + '&TextContent=' + content,
+			type: 'POST',
+			dataType: 'json',
+			contentType: 'application/json',
+			// data: JSON.stringify(comment),
+			success: function (data) {
+				console.log("Sucess", data)
 
-	if (event.keyCode == 13) {
-		var comment = jQuery(this).val();
-		var parent = jQuery(".showmore").parent("li");
-		var comment_HTML = '<li><div class="comet-avatar"><img alt="" src="images/resources/comet-2.jpg"></div><div class="we-comment"><h5><a title="" href="time-line.html">Sophia</a></h5><p>'+comment+'</p><div class="inline-itms"><span>1 minut ago</span><a title="Reply" href="#" class="we-reply"><i class="fa fa-reply"></i></a><a title="" href="#"><i class="fa fa-heart"></i></a></div></div></li>';
-		$(comment_HTML).insertBefore(parent);
-		jQuery(this).val('');
+				
+				var comment = document.createElement('li')
+
+				// them cmt vao post
+
+				//	comment.classList.add("flex");
+				comment.innerHTML = `<li>
+																	<div class="comet-avatar">
+																		<img src="${data.userImg}" alt="">
+																	</div>
+																	<div class="we-comment">
+																				<h5><a href="time-line.html" title="">${data.userName}</a></h5>
+																				<p>${data.content}</p>
+																		<div class="inline-itms">
+																			<span>${data.creatAt}</span>
+																			<a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+																			<a href="#" title=""><i class="fa fa-heart"></i><span>20</span></a>
+																		</div>
+																	</div>
+
+																</li>`
+				commentArea?.appendChild(comment)
+			},
+			error: function (xhr) {
+				alert(xhr.responseText);
+			}
+		})
 	}
-}); 
+
 	
+	$('.post-comt-box textarea').on("keydown", function(event) {
+
+		if (event.keyCode == 13) {
+			console.log($(this).attr("idPost"))
+			handleComment(event, $(this).attr("idPost"))
+		// handleComment(event, 43)
+
+		//var comment = jQuery(this).val();
+		//var parent = jQuery(".showmore").parent("li");
+		//var comment_HTML = '<li><div class="comet-avatar"><img alt="" src="images/resources/comet-1.jpg"></div><div class="we-comment"><h5><a title="" href="time-line.html">Linh</a></h5><p>' + comment + '</p><div class="inline-itms"><span>1 minut ago</span><a title="Reply" href="#" class="we-reply"><i class="fa fa-reply"></i></a><a title="" href="#"><i class="fa fa-heart"></i></a></div></div></li>';
+		//$(comment_HTML).insertBefore(parent);
+		//jQuery(this).val('');
+		
+	}
+});
+
+
 //inbox page 	
 //***** Message Star *****//  
     $('.message-list > li > span.star-this').on("click", function(){

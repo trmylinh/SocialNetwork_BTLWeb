@@ -108,7 +108,7 @@ namespace BTL_WEB.Controllers
 					HttpContext.Session.SetString("fullname", u.DisplayName.ToString());
 					HttpContext.Session.SetInt32("id", u.Id);
 					HttpContext.Session.SetString("username", u.Username.ToString());
-
+					HttpContext.Session.SetString("avatar", u.AvatarImg.ToString());
 					var username = u.Username;
 					
 					return RedirectToAction("Index", "Home");
