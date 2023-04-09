@@ -1,0 +1,144 @@
+﻿@{
+    ViewData["Title"] = "IndexMessage";
+    Layout = "~/Views/Shared/_LayoutMessage.cshtml";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+	var userId = Context.Session.GetString("id");
+}
+@model IEnumerable<ChatGroup>
+<div class="mesg-peple">
+	<ul class="nav nav-tabs nav-tabs--vertical msg-pepl-list" id="displayGroupChat">
+		
+	</ul>
+</div>
+<script>
+	
+	function getChatGroupByUserId(userId) {
+		$.ajax({
+			type: 'GET',
+			url: 'https://localhost:7070/api/messageAPI/group/' + userId,
+			dataType: 'json',
+			success: function (data) {
+				console.log(data);
+				displayGroupChat(data);
+			},
+			error: function (err) {
+				console.log(err);
+			}
+		})
+	}
+
+	function displayGroupChat(data){
+		str = '';
+		$.each(data, function (key, val) {
+			str = `<li class="nav-item">
+							<a class="active" href="#link1" data-toggle="tab" onclick="showMessagesByGroup('${val.id}')">
+							<figure>
+								<img src="../images/resources/friend-avatar3.jpg" alt="">
+								<span class="status f-online"></span>
+							</figure>
+							<div class="user-name">
+									<h6 class="">${val.name}</h6>
+												<p id="groupId_${val.name}" style="display: none;">${val.id}</p>
+												<p id="groupName_${val.id}" style="display: none;">${val.name}</p>
+								<span>you send a video - 2hrs ago</span>
+							</div>
+							<div class="more">
+								<div class="more-post-optns">
+									<i class="ti-more-alt"></i>
+									<ul>
+										<li><i class="fa fa-bell-slash-o"></i>Mute</li>
+										<li><i class="ti-trash"></i>Delete</li>
+										<li><i class="fa fa-folder-open-o"></i>Archive</li>
+										<li><i class="fa fa-ban"></i>Block</li>
+										<li><i class="fa fa-eye-slash"></i>Ignore Message</li>
+										<li><i class="fa fa-envelope"></i>Mark Unread</li>
+									</ul>
+								</div>
+							</div>
+						</a>
+					</li>`;
+			$('#displayGroupChat').append(str);
+			//alert($('#groupId').text());
+		})
+	} 
+
+	function showMessagesByGroup(groupId) {
+		$('#conversations').html('');
+		$('.groupName').html($('#groupName_'+groupId).text());
+		str = '';
+		URL = 'https://localhost:7070/api/messageAPI/messages/' + groupId;
+		$('#groupId').val(groupId);
+		$.ajax({
+			type: 'GET',
+			url: URL,
+			dataType: 'json',
+			success: function (data) {
+				console.log(URL);
+				console.log(data);
+				$.each(data, function (key, val) {
+					str = `<li class="me" id="message${val.id}">
+											<figure>
+												<p class="userName${val.senderId}" style="margin: 0;"></p>
+												<img class="img${val.senderId}" src="" alt="">
+											</figure>
+										<div class="text-box">
+													<p>${$.trim(val.message1)}</p>
+												<span><i class="ti-check"></i><i class="ti-check"></i> ${val.sentDatetime}</span>
+										</div>
+									  </li>`;
+					$('#conversations').append(str);
+					$.ajax({
+						type: 'GET',
+						url: 'https://localhost:7070/api/messageAPI/users/' + val.senderId,
+						dataType: 'json',
+						success: function (userData) {
+							console.log(userData);
+							var name = userData.displayName;
+							if(val.senderId === @userId){
+								$('.userName' + userData.id).text("me");
+							}
+							else{
+								$('.userName' + userData.id).text(name);
+							}
+							
+							$('.img' + userData.id).attr("src", '../../Anh/' + userData.avatarImg);
+						},
+						error: function (res) {
+							console.log(res);
+						}
+					});
+					if (val.senderId === @userId) {
+						$('#message' + val.id).removeClass("you");
+						$('#message' + val.id).addClass("me");
+					}
+					else {
+						$('#message' + val.id).removeClass("me");
+						$('#message' + val.id).addClass("you");
+					}
+				});
+				/*str += `<li class="me" id="message">
+									<figure><img src="../images/resources/user1.jpg" alt=""></figure>
+									<div class="text-box">
+										<p>HI, i have faced a problem with your software. are you available now</p>
+										<span><i class="ti-check"></i><i class="ti-check"></i> 2:32PM</span>
+									</div>
+								  </li>`;
+				if (val.senderId === @userId) {
+					$('#message').removeClass("you");
+					$('#message').addClass("me");
+				}
+				else {
+					$('#message').removeClass("me");
+					$('#message').addClass("you");
+				}*/
+			},
+			error: function (err) {
+				console.log(err);
+			}
+		});
+		
+	}
+</script>
