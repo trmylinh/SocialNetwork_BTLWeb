@@ -37,7 +37,7 @@ public partial class SocialMediaContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=MYLINH\\MYLINH;Initial Catalog=SocialMedia;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-K32NI01\\SQLEXPRESS;Initial Catalog=SocialMedia;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -213,11 +213,13 @@ public partial class SocialMediaContext : DbContext
 
             entity.HasIndex(e => e.Email, "UQ_users_email").IsUnique();
 
-            entity.HasIndex(e => e.Username, "UQ_users_username").IsUnique();
-
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.AvatarImg).HasColumnName("avatar_img");
-            entity.Property(e => e.BackgroundImg).HasColumnName("background_img");
+            entity.Property(e => e.AvatarImg)
+                .HasMaxLength(500)
+                .HasColumnName("avatar_img");
+            entity.Property(e => e.BackgroundImg)
+                .HasMaxLength(500)
+                .HasColumnName("background_img");
             entity.Property(e => e.Birthday)
                 .HasColumnType("date")
                 .HasColumnName("birthday");
@@ -234,7 +236,9 @@ public partial class SocialMediaContext : DbContext
                 .HasMaxLength(200)
                 .IsFixedLength()
                 .HasColumnName("password");
-            entity.Property(e => e.RoleId).HasColumnName("role_id");
+            entity.Property(e => e.RoleId)
+                .HasDefaultValueSql("((2))")
+                .HasColumnName("role_id");
             entity.Property(e => e.Username)
                 .HasMaxLength(50)
                 .IsFixedLength()
