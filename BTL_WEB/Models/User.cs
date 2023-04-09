@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BTL_WEB.Models;
 
@@ -12,7 +13,8 @@ public partial class User
 
     public string DisplayName { get; set; } = null!;
 
-    public string Email { get; set; } = null!;
+	[RegularExpression(@"^([\w-]+(\?\:\.[\w-]+)*)@((\?\:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(\?\:\.[a-z]{2})?)$", ErrorMessage = "Invalid email format")]
+	public string Email { get; set; } = null!;
 
     public string Password { get; set; } = null!;
 
@@ -23,9 +25,9 @@ public partial class User
     public string? AvatarImg { get; set; }
 
     public string? BackgroundImg { get; set; }
-    [JsonIgnore]
-    public bool? IsLocked { get; set; }
-    [JsonIgnore]
+
+    public bool IsLocked { get; set; }
+
     public int RoleId { get; set; }
 
     [JsonIgnore]
