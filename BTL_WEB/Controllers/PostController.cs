@@ -93,7 +93,7 @@ namespace BTL_WEB.Controllers
 
         
 
-		//	[Authentication]
+		[Authentication]
 		[HttpPost]
 		public IActionResult PostComment(Comment comment)
 		{
@@ -118,7 +118,34 @@ namespace BTL_WEB.Controllers
 			}
 			return new JsonResult(null);
 		}
-	}
+
+        [Authentication]
+        public IActionResult DeletePost(string idPost, string idUser)
+        {
+            if (idPost == null || idUser == null || int.Parse(idUser) != (int)HttpContext.Session.GetInt32("id"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            Post post = db.Posts.FirstOrDefault(x => x.Id == int.Parse(idPost));
+            if (post == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            List<Like> listLikePost = db.Likes.Where(x => x.TargetId == int.Parse(idPost)).ToList();
+            List<Comment> listCommentPost = db.Comments.Where(x => x.PostId == int.Parse(idPost)).ToList();
+            if (listLikePost != null)
+            {
+                db.Likes.RemoveRange(listLikePost);
+            }
+            if (listCommentPost != null)
+            {
+                db.Comments.RemoveRange(listCommentPost);
+            }
+            db.Posts.Remove(post);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
+    }
 
 
 }

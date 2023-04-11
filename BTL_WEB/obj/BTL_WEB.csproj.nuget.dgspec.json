@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Workspace\\Web\\btlWebMVC_Core\\BTL_WEB\\BTL_WEB.csproj": {}
+    "D:\\Nam 3 CNTT\\LT Web\\BTLWeb\\SocialNetwork_BTLWeb\\BTL_WEB\\BTL_WEB.csproj": {}
   },
   "projects": {
-    "D:\\Workspace\\Web\\btlWebMVC_Core\\BTL_WEB\\BTL_WEB.csproj": {
+    "D:\\Nam 3 CNTT\\LT Web\\BTLWeb\\SocialNetwork_BTLWeb\\BTL_WEB\\BTL_WEB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Workspace\\Web\\btlWebMVC_Core\\BTL_WEB\\BTL_WEB.csproj",
+        "projectUniqueName": "D:\\Nam 3 CNTT\\LT Web\\BTLWeb\\SocialNetwork_BTLWeb\\BTL_WEB\\BTL_WEB.csproj",
         "projectName": "BTL_WEB",
-        "projectPath": "D:\\Workspace\\Web\\btlWebMVC_Core\\BTL_WEB\\BTL_WEB.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "D:\\Workspace\\Web\\btlWebMVC_Core\\BTL_WEB\\obj\\",
+        "projectPath": "D:\\Nam 3 CNTT\\LT Web\\BTLWeb\\SocialNetwork_BTLWeb\\BTL_WEB\\BTL_WEB.csproj",
+        "packagesPath": "C:\\Users\\linhn\\.nuget\\packages\\",
+        "outputPath": "D:\\Nam 3 CNTT\\LT Web\\BTLWeb\\SocialNetwork_BTLWeb\\BTL_WEB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\linhn\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -86,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
