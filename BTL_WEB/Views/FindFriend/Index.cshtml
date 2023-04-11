@@ -294,8 +294,7 @@
                                 <div class="pit-post-deta">
                                     <h4>
                                         <a href="pitpoint-detail.html" title="">
-                                            <span class="status f-online"></span> @item.DisplayName |
-                                            22
+                                            <span class="status f-online"></span> @item.DisplayName
                                         </a>
                                     </h4>
                                     <ul class="post-up-time">
@@ -312,7 +311,7 @@
                                        title=""
                                        class="main-btn2 send-mesg"
                                        data-ripple="">Send Message</a>
-                                    <a href="#" title="" class="main-btn" data-ripple="">Add Friend</a>
+                                        <a asp-controller="FindFriend" asp-action="SendFriendRequest" asp-route-userId="@item.Id" title="" class="main-btn" data-ripple="">Add Friend</a>
                                 </div>
                             </div>
                         </div>
