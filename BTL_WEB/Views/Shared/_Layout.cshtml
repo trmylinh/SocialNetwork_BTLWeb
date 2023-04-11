@@ -262,22 +262,6 @@
 							<li>
 								<div>
 									<figure>
-										<img src="../images/resources/thumb-4.jpg" alt="">
-									</figure>
-									<div class="mesg-meta">
-										<h6><a href="#" title="">Andrew</a></h6>
-										<span><b>Bikra</b> is mutule friend</span>
-										<i>4 hours ago</i>
-									</div>
-									<div class="add-del-friends">
-										<a href="#" title=""><i class="fa fa-heart"></i></a>
-										<a href="#" title=""><i class="fa fa-trash"></i></a>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div>
-									<figure>
 										<img src="../images/resources/thumb-5.jpg" alt="">
 									</figure>
 									<div class="mesg-meta">
@@ -755,7 +739,7 @@
 						<li><a href="timeline-photos.html" title="">Timeline Photos</a></li>
 						<li><a href="timeline-videos.html" title="">Timeline Videos</a></li>
 						<li><a href="timeline-groups.html" title="">Timeline Groups</a></li>
-						<li><a href="timeline-friends.html" title="">Timeline Friends</a></li>
+						<li><a asp-controller="FindFriend" asp-action="GoToFriendList" title="">Timeline Friends</a></li>
 						<li><a href="timeline-friends2.html" title="">Timeline Friends-2</a></li>
 						<li><a href="/Profile/Index">Timeline About</a></li>
 						<li><a href="blog-posts.html" title="">Timeline Blog</a></li>
@@ -1497,6 +1481,7 @@
 	<script src="../js/page-tourintro.js"></script>
 	<script src="../js/page-tour-init.js"></script>
 	<script src="../js/script.js"></script>
+	@await RenderSectionAsync("Scripts", required: false)
 	<script>
 		jQuery(document).ready(function($) {
 
