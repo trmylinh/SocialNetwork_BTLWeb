@@ -1,7 +1,8 @@
 ﻿@{
 	var username = Context.Session.GetString("username");
 	var fullname = Context.Session.GetString("fullname");
-	var id = Context.Session.GetString("id");
+	var id = Context.Session.GetString("id1");
+	var avatar = Context.Session.GetString("avatar");
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -1115,7 +1116,7 @@
 												</div>
 													
 												<div class="author-content">
-													<a class="h4 author-name" href="about.html">@username</a>
+													<a class="h4 author-name" href="about.html">@fullname</a>
 													<div class="country">Ontario, CA</div>
 												</div>
 											</div>
@@ -1263,7 +1264,7 @@
 													</div>
 													<div class="setting-meta">
 														<div class="change-photo">
-															<figure><img src="../images/resources/admin2.jpg" alt=""></figure>
+																<figure><img src="images/resources/admin2.jpg" alt=""></figure>
 															<div class="edit-img">
 																<form class="edit-phto">
 																	
@@ -1783,7 +1784,7 @@
 	
 	<script src="../js/main.min.js"></script>
 	<script src="../js/script.js"></script>
-
+	@RenderSection("Scripts", required: false)
 </body>	
 
 

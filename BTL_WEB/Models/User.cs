@@ -9,14 +9,18 @@ public partial class User
 {
     public int Id { get; set; }
 
-    public string? Username { get; set; }
+	[RegularExpression("[a-zA-Z ]+", ErrorMessage = "Định dạng Username không hợp lệ!")]
+	public string? Username { get; set; }
 
-    public string DisplayName { get; set; } = null!;
+	[RegularExpression("[a-zA-Z0-9 ]+", ErrorMessage = "Định dạng Displayname không hợp lệ!")]
+	public string DisplayName { get; set; } = null!;
 
-	[RegularExpression(@"^([\w-]+(\?\:\.[\w-]+)*)@((\?\:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(\?\:\.[a-z]{2})?)$", ErrorMessage = "Invalid email format")]
+	//[RegularExpression(@"^([\w-]+(\?\:\.[\w-]+)*)@((\?\:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(\?\:\.[a-z]{2})?)$", ErrorMessage = "Invalid email format")]
+	[RegularExpression(@"^([\w-]+(\?\:\.[\w-]+)*)@((\?\:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(\?\:\.[a-z]{2})?)\s*$", ErrorMessage = "Định dạng Email không hợp lệ!")]
 	public string Email { get; set; } = null!;
 
-    public string Password { get; set; } = null!;
+	[RegularExpression("^[a-zA-Z0-9!@#$%^&*()_+\\-=[\\]{}|;':\",./<>? ]+$", ErrorMessage = "Định dạng Password không hợp lệ!")]
+	public string Password { get; set; } = null!;
 
     public byte? Gender { get; set; }
 

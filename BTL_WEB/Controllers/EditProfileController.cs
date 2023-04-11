@@ -5,12 +5,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace BTL_WEB.Controllers
 {
 	public class EditProfileController : Controller
 	{
-        SocialMediaContext db = new SocialMediaContext();
+		private IHostingEnvironment _env;
+		public EditProfileController(IHostingEnvironment _environment)
+		{
+			_env = _environment;
+
+		}
+		SocialMediaContext db = new SocialMediaContext();
         [Route("Index")]
         [HttpGet]
         public IActionResult Index(int? userID)
@@ -32,7 +39,7 @@ namespace BTL_WEB.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         
-        public IActionResult Index(User user)
+        public IActionResult Index(User user, IFormFile img)
         {
             try
             {
@@ -45,15 +52,17 @@ namespace BTL_WEB.Controllers
                     userChange.Password = user.Password;
                     userChange.Gender = user.Gender;
                     userChange.Birthday = user.Birthday;
-                    db.SaveChanges();
+					
+					db.SaveChanges();
                     HttpContext.Session.SetString("username", userChange.Username.ToString());
                     HttpContext.Session.SetString("fullname", userChange.DisplayName.ToString());
                     HttpContext.Session.SetString("email", userChange.Email.ToString());
                     HttpContext.Session.SetString("password", userChange.Password.ToString());
                     HttpContext.Session.SetInt32("gender", Int32.Parse(userChange.Gender.ToString()));
                     HttpContext.Session.SetString("birthday", userChange.Birthday.ToString());
-                    // Gọi trực tiếp action "Index" của controller "Profile" với thông tin đã cập nhật
-                    return View("~/Views/Profile/Index.cshtml");
+					HttpContext.Session.SetString("avatar", userChange.AvatarImg.ToString());
+					// Gọi trực tiếp action "Index" của controller "Profile" với thông tin đã cập nhật
+					return View("~/Views/Profile/Index.cshtml");
                 }
 
                 return View(user);
@@ -65,5 +74,7 @@ namespace BTL_WEB.Controllers
             }
         }
 
-    }
+		
+
+	}
 }
